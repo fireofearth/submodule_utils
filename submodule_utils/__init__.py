@@ -132,7 +132,7 @@ def extract_yaml_from_str(data):
     yaml_str = match.group(0)
     return yaml.load(yaml_str, Loader=yaml.FullLoader)
 
-def extract_yaml_from_json(filepath):
+def extract_yaml_from_file(filepath):
     """Extract YAML section from a TXT file at filepath, in other words it looks for a section in the file that has '---' above and '...' below.
 
     ---
@@ -149,8 +149,6 @@ def extract_yaml_from_json(filepath):
     -------
     dict
         The extracted yaml as dictionary
-
-    TODO: incorrect function name. extract_yaml_from_json should be named extract_yaml_from_file
     """
     data = load_str(filepath)
     return extract_yaml_from_str(data)
